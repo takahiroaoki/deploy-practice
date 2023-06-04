@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: ./dockerfiles/nginx
+    container_name: deploy-practice_web
+    ports:
+      - "80:80"
+    volumes:
+      - ./dockerfiles/nginx/log:/var/log/nginx
+    depends_on:
+      - deploy-practice_app
+  app:
+    build:
+      context: ./dockerfiles/nodejs
+    container_name: deploy-practice_app
+    volumes:
+      - ./app:/app
+      - volume_trick:/app/node_modules
+    working_dir: /app
+    expose:
+      - 3000
+    tty: true
+volumes:
+  volume_trick:
