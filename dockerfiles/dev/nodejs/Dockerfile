@@ -1,5 +1,7 @@
 FROM amazonlinux:2.0.20230504.1
 
+WORKDIR /app
+
 # install basic tools
 RUN yum -y update && yum install -y \
     systemd \
