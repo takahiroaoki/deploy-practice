@@ -1,9 +1,18 @@
 version: '3.8'
 
 services:
+  web:
+    build:
+      context: ./dockerfiles/prod/nginx
+    container_name: deploy-practice_web
+    ports:
+      - "80:80"
+    depends_on:
+      - deploy-practice_app
   app:
     build:
       context: .
       dockerfile: ./dockerfiles/prod/nodejs/Dockerfile
+    container_name: deploy-practice_app
     ports:
       - "3000:3000"
