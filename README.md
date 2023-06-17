@@ -14,7 +14,7 @@ $ docker compose -f docker-compose.dev.yml exec app /bin/bash
 $ sudo npm ci
 $ npm run start:debug
 ```
-Then, get access to http://localhost/dev
+Then, get access to http://localhost
 
 When you stop docker containers.
 ```
